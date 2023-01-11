@@ -17,17 +17,17 @@ let whoWins = () =>{
     if(userChoice===computerChoice){
         win++;loss++;
     }
-    if(userChoice==='paper.jpg'){
-        if(computerChoice==='rock.jpg') win++;
-        else if(computerChoice==='scissor.jpg') loss++;
+    if(userChoice==='images/paper.jpg'){
+        if(computerChoice==='images/rock.jpg') win++;
+        else if(computerChoice==='images/scissor.jpg') loss++;
     }
-    else if(userChoice==='rock.jpg'){
-        if(computerChoice==='scissor.jpg') win++;
-        else if(computerChoice==='paper.jpg') loss++;
+    else if(userChoice==='images/rock.jpg'){
+        if(computerChoice==='images/scissor.jpg') win++;
+        else if(computerChoice==='images/paper.jpg') loss++;
     }
     else{
-        if(computerChoice==='rock.jpg') loss++;
-        else if(computerChoice==='paper.jpg') win++;
+        if(computerChoice==='images/rock.jpg') loss++;
+        else if(computerChoice==='images/paper.jpg') win++;
     }
 }
 
