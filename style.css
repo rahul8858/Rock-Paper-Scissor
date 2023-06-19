@@ -1,86 +1,124 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-#title{
-    text-align: center;
-    margin: 2vw 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-style: "Barlow Semi Condensed", sans-serif;
 }
 
-#result{
-    width: 100%;
-    height: 10%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    padding: 5vh 20vw;
+#choices ul {
+  box-sizing: border-box;
+  margin-top: 40px;
+  /* border: 1px solid white; */
+  background: url(images/bg-pentagon.svg) no-repeat center;
+  background-size: 250px;
 }
 
-#wins,#loses{
-    color: red;
+#choices ul > li:hover {
+  transform: scale(1.1);
 }
 
-#choice{
-    height: 50vh;
-    padding: 5vh 10vw;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
+.rock {
+  border: 10px solid hsl(349, 71%, 52%);
 }
 
-#user-choice,#computer-choice{
-    width: 25vw;
-    /* height: 25vw; */
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 256px;
+.rock:hover {
+  cursor: pointer;
+  border: 10px solid hsl(349, 70%, 56%);
 }
 
-#input{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    padding: 5vh 30vw;
+.paper {
+  border: 10px solid hsl(230, 89%, 62%);
 }
 
-img{
-    height: 100%;
-    width: 100%;
-    object-fit: fill;
-}
-button{
-    height: 5vh;
-    width: 8vw;
-    color: blue;
+.paper:hover {
+  cursor: pointer;
+  border: 10px solid hsl(230, 89%, 65%);
 }
 
-footer{
-    text-align: center;
+.scissors {
+  border: 10px solid hsl(39, 89%, 49%);
+  margin-right: 40px;
 }
 
-@media screen and (max-width:600px) {
-    #result{
-        padding: 2vh auto;
-    }
-    #choice{
-        flex-direction: column;
-        align-items: center;
-        height: 64vh;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-    #user-choice,#computer-choice{
-        height: 25vh;
-        width: 40vw;
-        margin: 2vh 0;
-        font-size: 48px;
-    }
-    #input{
-        padding: 2vh auto;
-    }
-    #input>button{
-        width: max-content;
-    }
+.scissors:hover {
+  cursor: pointer;
+  border: 10px solid hsl(40, 84%, 53%);
+}
+
+.lizard {
+  border: 10px solid hsl(261, 73%, 60%);
+}
+
+.lizard:hover {
+  cursor: pointer;
+  border: 10px solid hsl(261, 72%, 63%);
+}
+
+.spock {
+  border: 10px solid hsl(189, 59%, 53%);
+}
+
+.spock:hover {
+  cursor: pointer;
+  border: 10px solid hsl(189, 58%, 57%);
+}
+
+@media screen and (min-width: 768px) {
+  #choices ul {
+    background-size: 350px;
+  }
+
+  #choices ul > li:hover {
+    transform: scale(1.1);
+  }
+
+  .rock {
+    border: 15px solid hsl(349, 71%, 52%);
+  }
+
+  .rock:hover {
+    cursor: pointer;
+    border: 15px solid hsl(349, 70%, 56%);
+  }
+
+  .paper {
+    border: 15px solid hsl(230, 89%, 62%);
+  }
+
+  .paper:hover {
+    cursor: pointer;
+    border: 15px solid hsl(230, 89%, 65%);
+  }
+
+  .scissors {
+    border: 15px solid hsl(39, 89%, 49%);
+    margin-right: 50px;
+  }
+
+  .scissors:hover {
+    cursor: pointer;
+    border: 15px solid hsl(40, 84%, 53%);
+  }
+
+  .lizard {
+    border: 15px solid hsl(261, 73%, 60%);
+  }
+
+  .lizard:hover {
+    cursor: pointer;
+    border: 15px solid hsl(261, 72%, 63%);
+  }
+
+  .spock {
+    border: 15px solid hsl(189, 59%, 53%);
+  }
+
+  .spock:hover {
+    cursor: pointer;
+    border: 15px solid hsl(189, 58%, 57%);
+  }
 }

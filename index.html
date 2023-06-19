@@ -1,33 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissor Game</title>
-</head>
-<body>
-    <h1 id="title">Rock Paper Scissor</h1>
-    <div id="result">
-        <h1>Wins: <span id="wins">0</span></h1>
-        <h1>Lose: <span id="loses">0</span></h1>
-    </div>
-    <div id="choice">
-        <div id="user-choice">?</div>
-        <div id="computer-choice">?</div>
-    </div>
-    <div id="input">
-        <button id="rock">Rock</button>
-        <button id="scissor">Scissor</button>
-        <button id="paper">Paper</button>
-    </div>
-    <footer>
-        Copyright © 
-        <script>
-            document.write(new Date().getFullYear())
-        </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+    </style>
+  </head>
+  <body
+    class="bg-[#3C486B] text-white flex flex-col items-center justify-between"
+  >
+    <header
+      class="h-[100px] w-[300px] md:h-[140px] md:w-[600px] border flex items-center justify-between p-5 rounded-lg mt-4"
+    >
+      <img
+        src="images/logo-bonus.svg"
+        alt="logo"
+        class="mt-2 h-[80px] md:h-[100px]"
+      />
+      <div
+        class="bg-white h-[80px] md:h-[100px] w-[100px] text-[14px] font-[700] text-blue-600 text-center py-2 rounded-lg"
+      >
+        SCORE :
+        <span
+          id="wins"
+          class="text-[#3C486B] text-[30px] md:text-[36px] block font-extrabold"
+          >0</span
+        >
+      </div>
+    </header>
+    <main class="h-[300px] md:h-[400px] mt-5">
+      <section id="choices">
+        <ul
+          class="flex flex-wrap-reverse gap-5 h-[250px] w-[250px] md:w-[340px] md:h-[350px] justify-center"
+        >
+          <li
+            id="0"
+            class="scissors bg-slate-100 h-[80px] w-[80px] p-4 rounded-[40px] md:h-[120px] md:w-[120px] md:p-6 md:rounded-[60px] flex items-center justify-center"
+          >
+            <img src="images/icon-scissors.svg" alt="scissor" height="50px" />
+          </li>
+          <li
+            id="1"
+            class="spock bg-slate-100 h-[80px] w-[80px] p-4 rounded-[40px] md:h-[120px] md:w-[120px] md:p-6 md:rounded-[60px] flex items-center justify-center"
+          >
+            <img src="images/icon-spock.svg" alt="spock" height="50px" />
+          </li>
+          <li
+            id="2"
+            class="lizard relative top-[-10px] right-[50px] md:top-[-20px] md:right-[80px] bg-slate-100 h-[80px] w-[80px] p-4 rounded-[40px] md:h-[120px] md:w-[120px] md:p-6 md:rounded-[60px] flex items-center justify-center"
+          >
+            <img src="images/icon-lizard.svg" alt="lizard" height="50px" />
+          </li>
+          <li
+            id="3"
+            class="rock relative top-[-10px] right-[-50px] md:top-[-20px] md:right-[-80px] bg-slate-100 h-[80px] w-[80px] p-4 rounded-[40px] md:h-[120px] md:w-[120px] md:p-6 md:rounded-[60px] flex items-center justify-center"
+          >
+            <img src="images/icon-rock.svg" alt="rock" height="50px" />
+          </li>
+          <li
+            id="4"
+            class="paper bg-slate-100 h-[80px] w-[80px] p-4 rounded-[40px] md:h-[120px] md:w-[120px] md:p-6 md:rounded-[60px] flex items-center justify-center"
+          >
+            <img src="images/icon-paper.svg" alt="paper" height="50px" />
+          </li>
+        </ul>
+      </section>
+      <section id="picked" class="hidden">
+        <div
+          id="showdown"
+          class="flex justify-center gap-4 md:justify-between w-[300px] md:w-[600px]"
+        >
+          <div
+            id="user-picked"
+            class="flex flex-col items-center justify-center mb-3"
+          >
+            <h1 class="font-[600] text-[16px] md:text-[20px] text-center">
+              YOU PICKED
+            </h1>
+            <div
+              class="option h-[100px] w-[100px] rounded-[50px] md:h-[200px] md:w-[200px] md:rounded-[100px] mt-5 bg-[#2B3467]"
+            ></div>
+          </div>
+          <div
+            id="house-picked"
+            class="flex flex-col items-center justify-center mb-3"
+          >
+            <h1 class="font-[600] text-[16px] md:text-[20px] text-center">
+              THE HOUSE PICKED
+            </h1>
+            <div
+              class="option h-[200px] w-[200px] rounded-[100px] mt-3 bg-[#2B3467]"
+            ></div>
+          </div>
+        </div>
+        <div id="score" class="flex flex-col items-center justify-center">
+          <p
+            id="message"
+            class="font-[600] text-[20px] md:text-[40px] text-center"
+          ></p>
+          <button
+            id="play-again"
+            class="text-[#3C486B] bg-white font-[700] text-[15px] md:text-[20px] px-10 py-3 rounded-lg mt-2 tracking-wide"
+          >
+            PLAY AGAIN
+          </button>
+        </div>
+      </section>
+    </main>
+    <section
+      id="rules-modal"
+      class="bg-white rounded-lg absolute top-[150px] px-7 py-5 hidden"
+    >
+      <h1 class="text-[#3C486B] font-[700] text-[20px]">RULES</h1>
+      <img
+        id="close"
+        src="images/icon-close.svg"
+        alt="icon-close"
+        class="absolute right-7 top-6 hover:fill-[#3C486B]"
+      />
+      <img
+        src="./images/image-rules-bonus.svg"
+        alt="rules"
+        width="300px"
+        class="w-[250px] md:w-[300px]"
+      />
+    </section>
+    <footer class="h-[100px] md:h-[30px] flex items-center justify-center">
+      <button
+        id="rules"
+        class="border-2 rounded-md px-7 py-2 font-[700] md:absolute md:right-[100px]"
+      >
+        RULES
+      </button>
     </footer>
     <script src="app.js" charset="utf-8"></script>
-</body>
+  </body>
 </html>
