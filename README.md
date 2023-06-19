@@ -1,7 +1,5 @@
 # Rock Paper Scissor Game
 
-### Screenshot
-
 ![](./screenshort.png)
 
 ### Links
